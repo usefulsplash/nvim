@@ -35,6 +35,21 @@ require('lazy').setup({
     -- NOTE: If you have trouble with this installation, refer to the README for telescope-fzf-native.
     build = 'make',
   },
+  { -- Obsidian plugin
+    'epwalsh/obsidian.nvim',
+    version = '*', lazy = true, ft = 'markdown',
+    dependencies = {
+      'epwalsh/pomo.nvim',
+      'hrsh7th/nvim-cmp',
+      'nvim-telescope/telescope.nvim',
+      'nvim-treesitter/nvim-treesitter',
+    },
+    opts = {
+      workspaces = {
+        { name = "SplashVault" , path = "~/Documents/SplashVault" },
+      },
+    },
+  },
 }, {})
 
 -- Set highlight on search
@@ -321,5 +336,8 @@ require('nvim-ts-autotag').setup({
     }
   }
 })
+
+-- Conceal Level
+vim.opt.conceallevel = 1
 
 -- vim: ts=2 sts=2 sw=2 et
